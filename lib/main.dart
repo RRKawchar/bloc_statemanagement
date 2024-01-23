@@ -1,10 +1,12 @@
 import 'package:bloc_practice/bloc/counter_bloc/counter_bloc.dart';
 import 'package:bloc_practice/bloc/favourite_app/favourite_bloc.dart';
 import 'package:bloc_practice/bloc/image_picker/image_picker_bloc.dart';
+import 'package:bloc_practice/bloc/posts/post_bloc.dart';
 import 'package:bloc_practice/bloc/switch_slider/swich_slider_bloc.dart';
 import 'package:bloc_practice/bloc/to_do/todo_bloc.dart';
 import 'package:bloc_practice/repository/favourite_repository.dart';
 import 'package:bloc_practice/ui/favourite_app/favourite_app_screen.dart';
+import 'package:bloc_practice/ui/posts/post_screen.dart';
 import 'package:bloc_practice/ui/to_do/to_do_screen.dart';
 import 'package:bloc_practice/utils/image_picker_utils.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +28,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ImagePickerBloc(ImagePickerUtils())),
         BlocProvider(create: (context)=> TodoBloc()),
         BlocProvider(create: (context)=> FavouriteBloc(FavouriteRepository())),
+        BlocProvider(create: (context)=> PostBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const FavouriteAppScreen(),
+        home: const PostScreen(),
       ),
     );
   }
